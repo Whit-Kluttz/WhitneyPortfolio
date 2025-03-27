@@ -51,7 +51,7 @@ const ClassicHeader = ({ handleNavClick }) => {
               }}
             >
               {" "}
-              <img src="images/logo-light.png" alt="Whitney" />{" "}
+              {/* <img src="images/logo-light.png" alt="Whitney" />{" "} */}
             </Link>
             {/* Logo End */}
           </div>
@@ -205,7 +205,7 @@ const ClassicHeader = ({ handleNavClick }) => {
             </div>
           </div>
           <div className="col-auto col-lg-2 d-flex justify-content-end">
-            <ul className="social-icons social-icons-light">
+            {/* <ul className="social-icons social-icons-light">
               <li className="social-icons-twitter">
                 <Tooltip text="Twitter" placement="top">
                   <a
@@ -239,7 +239,7 @@ const ClassicHeader = ({ handleNavClick }) => {
                   </a>
                 </Tooltip>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </nav>

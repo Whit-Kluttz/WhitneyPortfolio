@@ -21,7 +21,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       title: "Floor is... What?!",
       engine: "Unity",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Floor is... What?! Is a four player Mario Party style like game I had the joy of working on with Joshua Garity for the majority of 2023 - 2024. I assisted the project by porting it for online networking using the Photon PUN2 SDK, developing preexisting gameplay and Unity physics to work seamlessly for online gameplay. I also assisted in the game design giving prototyping notes and attending conferences and playtesting sessions to gather and analzye player feedback. ",
       client: "Joshua Garity",
       technologies: "Unity, Photon PUN, C#, C++, Blender, Jira",
       industry: "Game Development and Design",
@@ -48,7 +48,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
     {
       title: "Idol Hell",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Idol Hell is a 6 chapter arcade shooter game developed in Unity as a capstone project I led. The game raised $17.5k in a successful Kickstart campaign and is available on both Steam and Nintendo Switch. My main responsibilities included scripting generative bullet logic, designing artistic bullet patterns for four difficulties, moderating a community server, and assisting with optimization for the Switch SDK.",
       client: "Whitney Kluttz",
       engine: "Unity",
       technologies: "Unity, Switch Dev, C#, Adobe, Steam, Jira, Miro",
@@ -78,7 +78,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
     {
       title: "Bun.EXE",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Bun.EXE is an action adventure game that tells a story across four major dungeons. On this project, I worked in developing the narrative, puzzle, and combat systems in the game. I also was the primary designer behind the puzzles in each dungeon and prototyped combat for all enemies and bosses.",
       client: "Sean Foley",
       engine: "Godot",
       technologies: "Godot, GDScript, Aseprite, Trello, Miro",
@@ -106,15 +106,15 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
     {
       title: "Cattle USA",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      engine: "Angular",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
+        "Cattle USA is a website I developed along with the Effortless API team inside the Angular framework. On this project I helped develop front end design for the login authentication page and developed a new front-end application for the company. I also ran backend QA testing for a switch to Token based OAuth using a DBeaver server for tracking user data.",
+      client: "EJ Alexandria",
+      engine: "Angular, DBeaver",
+      technologies: "Angular, HTML5, Tailwind, DBeaver, Figma, Airtable, SQL",
+      industry: "Full Stack Development",
+      date: "Janurary 20, 2025",
       url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
+        name: "Cattle USA Home Page",
+        link: "https://www.cattleusa.com/",
       },
       socialLinks: {
         facebook: "http://www.facebook.com/",
@@ -125,23 +125,22 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       },
       thumbImage: "images/projects/CattleLogo.png",
       sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-4.jpg",
+        "images/projects/cattleusa.png",
       ],
       categories: [filters.WEBSITES],
     },
     {
       title: "Equlibiria Systems - AI Game Project",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Equilibria Systems is a company focused on bridging informational sciences with entertainment systems. I worked to develop a bold project of theirs that used Open AI to serve as a linguistic game master in an upcoming project. Because of NDA I cannot include images or specific details, but my responsibilities included Unity API integration, MML management, and back-end data retrieval.",
       client: "Ross Magnant",
       engine: "Unity",
-      technologies: "Unity, C#, Open AI, LootLocker",
-      industry: "Tech Demo",
+      technologies: "Unity, C#, APIs, Open AI, LootLocker",
+      industry: "Game Development",
       date: "March 10, 2025",
       url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
+        name: "NDA",
+        // link: "https://www.example.com",
       },
       socialLinks: {
         facebook: "http://www.facebook.com/",
@@ -158,23 +157,23 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
     {
       title: "Marine Biology VR",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Marine Biology is a project I developed with Alter-Learning Education Inc. The project is a fully immersive VR underwater experience meant to help teach children about marine life. My role included VR Unity development, WebGL optimization, and design documentation and prototyping for underwater sea creatures.",
       client: "Ruby Clinton",
       engine: "Unity",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
+      technologies: "Unity, Vr, Occulus, Lens, WebGL",
+      industry: "VR Development and Design",
+      date: "April 3, 2023",
       url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
+        name: "Marine Biology",
+        link: "https://alter-learning.com/games/marine-biology/",
       },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
+      // socialLinks: {
+      //   facebook: "http://www.facebook.com/",
+      //   twitter: "http://www.twitter.com/",
+      //   google: "http://www.google.com/",
+      //   instagram: "http://www.instagram.com/",
+      //   mail: "mailto:example@gmail.com",
+      // },
       thumbImage: "images/projects/marine_biology.png",
       sliderImages: [
         "images/projects/animals.png",
@@ -189,42 +188,42 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
     {
       title: "Miraglia Client Portal",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
+        "Miraglia & Company is an eviction law firm I worked for during employment with Sandbox Union. On this project I was client facing and dealt with Front-End development of their client portal.",
+      client: "Miraglia & Company",
       engine: "Angular",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
+      technologies: "Anuglar, HTML5, CSS3, PHP, Java",
       industry: "Web Development",
-      date: "July 16, 2019",
+      date: "September 6, 2021",
       url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
+        name: "Miraglia Home Page",
+        link: "https://www.miragliaco.com/",
       },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
+      // socialLinks: {
+      //   facebook: "http://www.facebook.com/",
+      //   twitter: "http://www.twitter.com/",
+      //   google: "http://www.google.com/",
+      //   instagram: "http://www.instagram.com/",
+      //   mail: "mailto:example@gmail.com",
+      // },
       thumbImage: "images/projects/law.png",
       sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-5.jpg",
+        "images/projects/miragliahome.png",
+        "images/projects/miragliaportal.png",
       ],
       categories: [filters.WEBSITES],
     },
     {
       title: "Notes - A React App",
       projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+        "Notes - A React App is a tech demo I put together to improve on my React Skills. It's a simply reflection of the iOS Notes app on a PC using local back-end Json hosting to save data for created and deleted notes.",
       client: "Whitney Kluttz",
       engine: "React",
       technologies: "React, SCSS, Javascript, HTML5",
       industry: "Tech Demo",
       date: "March 10, 2025",
       url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
+        name: "Coming Soon",
+        // link: "https://www.example.com",
       },
       socialLinks: {
         facebook: "http://www.facebook.com/",
@@ -235,8 +234,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       },
       thumbImage: "images/projects/notes.png",
       sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-5.jpg",
+        "images/projects/notes.png",
       ],
       categories: [filters.WEBSITES, filters.TECH],
     },
