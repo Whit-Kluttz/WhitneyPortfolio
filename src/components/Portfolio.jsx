@@ -11,13 +11,15 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
 
   const filters = {
     DESIGN: "Design",
-    DEV: "Wed Development",
-    GAMES: "Game Development",
+    GAMES: "Games",
+    WEBSITES: "Websites",
+    TECH: "Tech"
   };
 
   const projectsData = [
     {
       title: "Floor is... What?!",
+      engine: "Unity",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
@@ -40,13 +42,14 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/project-1.jpg",
         "images/projects/project-5.jpg",
       ],
-      categories: [filters.BRAND],
+      categories: [filters.DESIGN, filters.GAMES],
     },
     {
       title: "Idol Hell",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
+      engine: "Unity",
       technologies: "Unity, Switch Dev, C#, Adobe, Steam",
       industry: "Game Development and Design",
       date: "March 3rd, 2023",
@@ -69,13 +72,14 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/boothbest.jpg",
         "images/projects/idolheollswitch.jpg",
       ],
-      categories: [filters.DESIGN],
+      categories: [filters.DESIGN, filters.GAMES],
     },
     {
       title: "Bun.EXE",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
+      engine: "Godot",
       technologies: "iOS, HTML5, CSS3, PHP, Java",
       industry: "Art & Design",
       date: "July 16, 2019",
@@ -95,13 +99,14 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/project-3.jpg",
         "images/projects/project-5.jpg",
       ],
-      categories: [filters.PHOTOS],
+      categories: [filters.DESIGN, filters.GAMES],
     },
     {
       title: "Cattle USA",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
+      engine: "Angular",
       technologies: "iOS, HTML5, CSS3, PHP, Java",
       industry: "Art & Design",
       date: "July 16, 2019",
@@ -121,13 +126,39 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/project-1.jpg",
         "images/projects/project-4.jpg",
       ],
-      categories: [filters.BRAND, filters.PHOTOS],
+      categories: [filters.WEBSITES],
     },
     {
-      title: "Project Title 5",
+      title: "Equlibiria Systems - AI Game Project",
+      projectInfo:
+        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
+      client: "Ross Magnant",
+      engine: "Unity",
+      technologies: "Unity, C#, Open AI, LootLocker",
+      industry: "Tech Demo",
+      date: "March 10, 2025",
+      url: {
+        name: "www.example.com",
+        link: "https://www.example.com",
+      },
+      socialLinks: {
+        facebook: "http://www.facebook.com/",
+        twitter: "http://www.twitter.com/",
+        google: "http://www.google.com/",
+        instagram: "http://www.instagram.com/",
+        mail: "mailto:example@gmail.com",
+      },
+      thumbImage: "images/projects/equilibria.png",
+      sliderImages: [
+      ],
+      categories: [filters.GAMES, filters.TECH],
+    },
+    {
+      title: "Marine Biology VR",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
+      engine: "Unity",
       technologies: "iOS, HTML5, CSS3, PHP, Java",
       industry: "Art & Design",
       date: "July 16, 2019",
@@ -147,15 +178,16 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/project-1.jpg",
         "images/projects/project-5.jpg",
       ],
-      categories: [filters.DESIGN],
+      categories: [filters.GAMES, filters.TECH, filters.DESIGN],
     },
     {
-      title: "Project Title 6",
+      title: "Miraglia Client Portal",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
       client: "Ruby Clinton",
+      engine: "Angular",
       technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
+      industry: "Web Development",
       date: "July 16, 2019",
       url: {
         name: "www.example.com",
@@ -173,16 +205,17 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         "images/projects/project-1.jpg",
         "images/projects/project-5.jpg",
       ],
-      categories: [filters.BRAND],
+      categories: [filters.WEBSITES],
     },
     {
-      title: "Project Title 7",
+      title: "Notes - A React App",
       projectInfo:
         "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
+      client: "Whitney Kluttz",
+      engine: "React",
+      technologies: "React, SCSS, Javascript, HTML5",
+      industry: "Tech Demo",
+      date: "March 10, 2025",
       url: {
         name: "www.example.com",
         link: "https://www.example.com",
@@ -194,12 +227,12 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         instagram: "http://www.instagram.com/",
         mail: "mailto:example@gmail.com",
       },
-      thumbImage: "images/projects/project-7.jpg",
+      thumbImage: "images/projects/notes.png",
       sliderImages: [
         "images/projects/project-1.jpg",
         "images/projects/project-5.jpg",
       ],
-      categories: [filters.DESIGN, filters.PHOTOS],
+      categories: [filters.WEBSITES, filters.TECH],
     },
   ];
 
@@ -321,7 +354,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                             <h5 className="text-white fw-400">
                               {project.title}
                             </h5>
-                            <span className="text-light">Category</span>
+                            <span className="text-light">{project.engine}</span>
                           </div>
                         </div>
                       </div>
