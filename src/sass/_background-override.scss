@@ -1,0 +1,21 @@
+// _background-overrides.scss
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+#content {
+  .section {
+    &,
+    &.bg-dark-1,
+    &.bg-dark-2 {
+      background-color: transparent !important;
+    }
+  }
+}
+
+body.dark-theme {
+  background-color: $gray-900;
+}
+
+#main-wrapper {
+  background-color: transparent !important;
+}

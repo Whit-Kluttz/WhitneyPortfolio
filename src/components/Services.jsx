@@ -4,29 +4,34 @@ const Services = ({ classicHeader, darkTheme }) => {
   // services details
   const services = [
     {
-      name: "Game Design",
-      desc: "Apart of each project I develop for, allow me to pitch, prototype, and handle feedback for your team.",
+      name: "Unity Development",
+      desc: "5+ years of experience developing 2D, 3D, XR, Mobile and more in Unity.",
       icon: "fas fa-gamepad",
     },
     {
-      name: "Web Design",
-      desc: "With a long history in Angular, React, and Vue.JS, I have years of front-end experience to bring.",
+      name: "HMTL5 | Angular | React",
+      desc: "Professional experience with full-stack development for landing pages and interactive playable experiences.",
       icon: "fas fa-desktop",
     },
     {
-      name: "UI/UX Design",
-      desc: "With every game and website I've done UI, let me improve readability and increase user engagement for your project.",
+      name: "Game Design",
+      desc: "Over 7 years of prototyping and designing systems for games both analog and digital: always tested and optimized.",
       icon: "fas fa-pencil-ruler",
     },
     {
-      name: "Statstics Design",
-      desc: "From casino stastics to generative trigonometry, my design experience has led me to work with all things numbers.",
+      name: "Performance Optimization",
+      desc: "Over 3 years of improving GPU and CPU to ensure the projects I work on are compatabile on any device a client might use.",
       icon: "fas fa-dice",
     },
     {
       name: "XR Development",
-      desc: "Since college, AR and VR projects have been a passion of mine, one I've been able to pursue professionally.",
+      desc: "Experience developing for AR/VR/MR platforms including Oculus, Hololens, and WebXR.",
       icon: "fas fa-vr-cardboard",
+    },
+    {
+      name: "Educational Content",
+      desc: "Work with clients like FableVision and OurEnglish to create educational games and interactive experiences for target audiences.",
+      icon: "fa-solid fa-apple-whole",
     },
     // {
     //   name: "SEO Marketing",

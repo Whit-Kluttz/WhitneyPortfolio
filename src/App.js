@@ -15,6 +15,7 @@ import TermsAndConditions from "./components/TermsAndConditions";
 import Disclaimer from "./components/Disclaimer";
 import PreLoader from "./components/Preloader";
 import { Tooltip } from "./components/Tooltip";
+import CircleBackground from "./components/CircleBackground";
 
 function App() {
   const classicHeader = commonConfig.classicHeader;
@@ -50,12 +51,18 @@ function App() {
     }
   };
 
-  if (typeof window !== "undefined") {
+  useEffect(() => {
     window.addEventListener("scroll", checkScrollTop);
-  }
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-theme", darkTheme);
+  }, [darkTheme]);
 
   return (
     <>
+      <CircleBackground />
       <div
         style={{ position: "relative" }}
         className={classicHeader ? "" : "side-header"}

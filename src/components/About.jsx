@@ -20,7 +20,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-white" : "text-dark")
             }
           >
-            Know Me More
+            Get To Know Me
             <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
           </p>
         </div>
@@ -60,11 +60,11 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 </li>
                 <li>
                   <span className="fw-600 me-2">Email:</span>
-                  <a href="mailto:chat@simone.com">whitneykluttz@gmail.com</a>
+                  <a href="mailto:whitneykluttz@gmail.com">whitneykluttz@gmail.com</a>
                 </li>
                 <li className="border-0">
-                  <span className="fw-600 me-2">Located:</span>Madison,
-                  Wisconsin
+                  <span className="fw-600 me-2">Located:</span>Santa Monica,
+                  California
                 </li>
               </ul>
               <a

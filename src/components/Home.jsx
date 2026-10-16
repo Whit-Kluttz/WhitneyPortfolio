@@ -6,47 +6,24 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
   return (
     <section id="home">
       <div className="hero-wrap">
-        <div className="hero-mask opacity-8 bg-dark" />
 
-        {/* ---------------image background------------------ */}
-        <div
-          className="hero-bg parallax"
-          style={{ backgroundImage: 'url("images/intro-bg.jpg")' }}
-        ></div>
-
-        {/* -------------------video background---------------------- */}
-
-        {/* <div className="player hero-bg parallax">
-          <video
-            src={videobg}
-            autoPlay
-            muted
-            loop
-            style={{ width: "100%", height: "100vh", objectFit: "cover" }}
-          ></video>
-        </div> */}
-
-        <div className="hero-content section d-flex min-vh-100">
+        <div className="hero-content section d-flex py-5"style={{ minHeight: "70vh" }}>
           <div className="container my-auto">
             <div className="row">
               <div className="col-12 text-center">
-                <p className="text-7 fw-500 text-white mb-2 mb-md-3">Welcome</p>
-                <h2 className="text-16 fw-600 text-white mb-2 mb-md-3">
+                <h1 className="text-18 fw-600 text-white mb-2 mb-md-3">Whitney Kluttz</h1>
+                <h2 className="text-12 fw-600 text-white mb-2 mb-md-3">
+                  I'm a{" "}
                   <Typewriter
                     options={{
-                      strings: [
-                        "I'm Whitney Kluttz",
-                        "I'm a Game Developer.",
-                        "I'm a Web Developer.",
-                        "I'm a Game Designer.",
-                      ],
+                      strings: ["Game Developer.", "Web Developer.", "Game Designer.", "Architect", "Programmer"],
                       autoStart: true,
                       loop: true,
                     }}
                   />
                 </h2>
                 <p className="text-5 text-light mb-4">
-                  based in Madison, Wisconsin.
+                  based in Santa Monica, California.
                 </p>
                 <a
                   href="#contact"
@@ -66,7 +43,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
             className="scroll-down-arrow text-white smooth-scroll"
             onClick={(e) => {
               e.preventDefault();
-              handleNavClick("about");
+              handleNavClick("portfolio");
             }}
           >
             <span className="animated">

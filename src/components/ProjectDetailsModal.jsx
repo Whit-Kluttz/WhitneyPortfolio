@@ -2,36 +2,90 @@ import React, { useEffect, useRef } from "react";
 
 import Slider from "react-slick";
 
+/* ---- AUTO-CYCLE: images advance on a timer while the popup is open ---- */
+const AUTOPLAY_MS = 2500; // how long each image shows before moving on (ms)
+
+/* ---- SLIDER IMAGES: size and alignment ---- */
+const MAX_IMAGE_HEIGHT = 450; // px: tallest an image can be. Every slide gets a box this
+                              // tall, and each image is centered inside it, so all slides align
+
+const SLIDER_SETTINGS = {
+  dots: true,
+  arrows: false,
+  infinite: true, // loops back to the first image after the last
+  speed: 750, // slide transition time (ms)
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true, // always on; the modal starts and stops it (see the effect below)
+  autoplaySpeed: AUTOPLAY_MS,
+  pauseOnDotsHover: true,
+};
+
+// The box every image sits in: fixed height, image centered both ways
+const slideBoxStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: MAX_IMAGE_HEIGHT,
+};
+
+// Images shrink to fit the box (never stretch) and keep their proportions
+const slideImageStyle = {
+  maxWidth: "100%",
+  maxHeight: "100%",
+  objectFit: "contain",
+};
+
 const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
   const sliderRef = useRef();
+  const modalRef = useRef();
 
-  var settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    adaptiveHeight: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-  };
+  const whiteIfDark = darkTheme ? " text-white" : "";
+  const labelClass = "text-dark font-weight-600 me-2" + whiteIfDark;
 
+  // The thumbnail is always the first slide, followed by the project's slider images
+  const slideImages = [
+    projectDetails?.thumbImage,
+    ...(projectDetails?.sliderImages ?? []),
+  ];
+
+  const details = [
+    ["Client", projectDetails?.client],
+    ["Technologies", projectDetails?.technologies],
+    ["Industry", projectDetails?.industry],
+    ["Date", projectDetails?.date],
+  ];
+
+  // Go back to the first image whenever a different project is chosen
   useEffect(() => {
-    sliderRef.current.slickGoTo(0);
+    sliderRef.current?.slickGoTo(0);
   }, [projectDetails]);
+
+  // Run the timer only while the popup is open. Bootstrap fires these events
+  // on the modal when it finishes opening and closing.
+  useEffect(() => {
+    const modal = modalRef.current;
+    const slider = () => sliderRef.current;
+
+    const onShown = () => {
+      slider()?.slickGoTo(0, true); // always start on the first image
+      slider()?.slickPlay();
+    };
+    const onHidden = () => slider()?.slickPause();
+
+    slider()?.slickPause(); // the slider mounts hidden, so hold it until the popup opens
+    modal.addEventListener("shown.bs.modal", onShown);
+    modal.addEventListener("hidden.bs.modal", onHidden);
+    return () => {
+      modal.removeEventListener("shown.bs.modal", onShown);
+      modal.removeEventListener("hidden.bs.modal", onHidden);
+    };
+  }, []);
 
   return (
     <>
       <div
+        ref={modalRef}
         className="modal fade bg-dark-1"
         id="exampleModal"
         tabIndex={-1}
@@ -58,47 +112,34 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                 }
               >
                 <h2
-                  className={
-                    "text-6 font-weight-600 text-center mb-4" +
-                    (darkTheme ? " text-white" : "")
-                  }
+                  id="exampleModalLabel"
+                  className={"text-6 font-weight-600 text-center mb-4" + whiteIfDark}
                 >
                   {projectDetails?.title}
                 </h2>
                 <div className="row g-4">
                   <div className="col-md-7">
-                    <Slider {...settings} ref={sliderRef}>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          alt=""
-                          src={projectDetails?.thumbImage}
-                        />
-                      </div>
-                      {projectDetails?.sliderImages?.length > 0 &&
-                        projectDetails?.sliderImages?.map((image, index) => (
-                          <div className="item" key={index}>
-                            <img className="img-fluid" alt="" src={image} />
+                    <Slider {...SLIDER_SETTINGS} ref={sliderRef}>
+                      {slideImages.map((image, index) => (
+                        <div className="item" key={index}>
+                          <div style={slideBoxStyle}>
+                            <img
+                              className="img-fluid"
+                              style={slideImageStyle}
+                              alt=""
+                              src={image}
+                            />
                           </div>
-                        ))}
+                        </div>
+                      ))}
                     </Slider>
                   </div>
                   <div className="col-md-5">
-                    <h4
-                      className={
-                        "text-4 font-weight-600" +
-                        (darkTheme ? " text-white" : "")
-                      }
-                    >
+                    <h4 className={"text-4 font-weight-600" + whiteIfDark}>
                       Project Info:
                     </h4>
                     <p>{projectDetails?.projectInfo}</p>
-                    <h4
-                      className={
-                        "text-4 font-weight-600 mt-4" +
-                        (darkTheme ? " text-white" : "")
-                      }
-                    >
+                    <h4 className={"text-4 font-weight-600 mt-4" + whiteIfDark}>
                       Project Details:
                     </h4>
                     <ul
@@ -106,59 +147,14 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                         "list-style-2 " + (darkTheme ? "list-style-light" : "")
                       }
                     >
+                      {details.map(([label, value]) => (
+                        <li key={label}>
+                          <span className={labelClass}>{label}:</span>
+                          {value}
+                        </li>
+                      ))}
                       <li>
-                        <span
-                          className={
-                            "text-dark font-weight-600 me-2" +
-                            (darkTheme ? " text-white" : "")
-                          }
-                        >
-                          Client:
-                        </span>
-                        {projectDetails?.client}
-                      </li>
-                      <li>
-                        <span
-                          className={
-                            "text-dark font-weight-600 me-2" +
-                            (darkTheme ? " text-white" : "")
-                          }
-                        >
-                          Technologies:
-                        </span>
-                        {projectDetails?.technologies}
-                      </li>
-                      <li>
-                        <span
-                          className={
-                            "text-dark font-weight-600 me-2" +
-                            (darkTheme ? " text-white" : "")
-                          }
-                        >
-                          Industry:
-                        </span>
-                        {projectDetails?.industry}
-                      </li>
-                      <li>
-                        <span
-                          className={
-                            "text-dark font-weight-600 me-2" +
-                            (darkTheme ? " text-white" : "")
-                          }
-                        >
-                          Date:
-                        </span>
-                        {projectDetails?.date}
-                      </li>
-                      <li>
-                        <span
-                          className={
-                            "text-dark font-weight-600 me-2" +
-                            (darkTheme ? " text-white" : "")
-                          }
-                        >
-                          URL:
-                        </span>
+                        <span className={labelClass}>URL:</span>
                         <a
                           href={projectDetails?.url?.link}
                           target="_blank"

@@ -2,6 +2,8 @@
 /*  5. Elements
 /* =================================== */
   
+
+
 /*=== 5.1 Featured Box ===*/
 .featured-box {
   box-sizing: border-box;
@@ -774,6 +776,9 @@ html[dir="rtl"] {
   }
 }
 
+.Typewriter {
+  display: inline;
+}
 
 /*=== 5.10 List Style ===*/
 
