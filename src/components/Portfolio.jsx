@@ -122,7 +122,6 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES],
     },
-    
     {title: "Online First Person Shooter Demo",
       engine: "Unity",
       projectInfo: "This is a Demo project I made for a client. While not avalialbe to play, it features online gameplay through Photon Quantum, a voxel based enviornment generator, 4 wacky guns, and more!",

@@ -1,0 +1,91 @@
+/* ---- card-modal-animation
+   Entry effect: the card drops in from above and lands.
+   Landing effect: the card wobbles (squash and stretch) when it hits.
+   Glass timing: the blur is held back until the card has settled,
+   because blurring a moving element is what causes lag.
+   ---- */
+
+/* ---- TUNABLES: change these to adjust the feel ---- */
+.card-modal-animation {
+  --card-duration: 500ms;      /* the card dropping into place */
+  --card-drop-distance: 70vh;  /* how far above it starts */
+  --wobble-duration: 400ms;    /* how long the jiggle lasts */
+  --wobble-squash: 0.03;       /* how much it squashes on impact (0.06 = 6%) */
+
+  overflow-x: hidden;          /* stops a sideways scrollbar from the tilt */
+}
+
+/* ---- Turn off Bootstrap's own slide so it doesn't fight ours ---- */
+.modal.card-modal-animation.fade .modal-dialog {
+  transition: none;
+  transform: none;
+}
+
+/* ---- Squash from the "floor" ---- */
+.card-modal-animation .modal-content {
+  transform-origin: bottom center;
+}
+
+/* ---- The card drops in and lands ---- */
+.modal.card-modal-animation.show .modal-dialog {
+  transform-origin: top center;
+  animation: project-card-drop var(--card-duration) ease-in both;
+}
+
+@keyframes project-card-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(var(--card-drop-distance) * -1)) rotate(-6deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(8px) rotate(1deg);   /* lands slightly low */
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Wobble starts the moment the card hits (75% of the drop).
+        The glass blur switches on once the wobble has finished. ---- */
+.modal.card-modal-animation.show .modal-content {
+  animation:
+    project-card-wobble var(--wobble-duration) ease-out
+      calc(var(--card-duration) * 0.75) both,
+    project-card-glass 1ms linear
+      calc(var(--card-duration) * 0.75 + var(--wobble-duration)) both;
+}
+
+@keyframes project-card-wobble {
+  0%   { transform: scale(1, 1); }
+  18%  { transform: scale(calc(1 + var(--wobble-squash)), calc(1 - var(--wobble-squash))); }
+  38%  { transform: scale(calc(1 - var(--wobble-squash) * 0.6), calc(1 + var(--wobble-squash) * 0.6)); }
+  58%  { transform: scale(calc(1 + var(--wobble-squash) * 0.3), calc(1 - var(--wobble-squash) * 0.3)); }
+  78%  { transform: scale(calc(1 - var(--wobble-squash) * 0.12), calc(1 + var(--wobble-squash) * 0.12)); }
+  100% { transform: scale(1, 1); }
+}
+
+/* --glass-filter is defined in card-modal-style.css */
+@keyframes project-card-glass {
+  from { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  to   { -webkit-backdrop-filter: var(--glass-filter); backdrop-filter: var(--glass-filter); }
+}
+
+/* ---- Small screens: shorter drop ---- */
+@media (max-width: 575.98px) {
+  .card-modal-animation {
+    --card-drop-distance: 40vh;
+  }
+}
+
+/* ---- Respect reduced-motion settings
+        (the glass blur then applies immediately from card-modal-style.css) ---- */
+@media (prefers-reduced-motion: reduce) {
+  .modal.card-modal-animation.show .modal-dialog,
+  .modal.card-modal-animation.show .modal-content {
+    animation: none;
+  }
+}

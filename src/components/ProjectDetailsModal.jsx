@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from "react";
 
 import Slider from "react-slick";
 
+import "./css/card-modal-animation.css"
+import "./css/card-modal-style.css"
+
 /* ---- AUTO-CYCLE: images advance on a timer while the popup is open ---- */
 const AUTOPLAY_MS = 2500; // how long each image shows before moving on (ms)
 
@@ -86,7 +89,7 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
     <>
       <div
         ref={modalRef}
-        className="modal fade bg-dark-1"
+        className="modal fade card-modal-style card-modal-animation"
         id="exampleModal"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
@@ -95,7 +98,7 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
         <div className="modal-dialog modal-xl">
           <div
             className={
-              "modal-content " + (darkTheme ? "bg-dark-2 text-light" : "")
+              "modal-content " + (darkTheme ? "text-light" : "")
             }
           >
             <div className="modal-body">
@@ -108,7 +111,7 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
               <div
                 className={
                   "container ajax-container " +
-                  (darkTheme ? "bg-dark-2 text-light" : "")
+                  (darkTheme ? "text-light" : "")
                 }
               >
                 <h2
