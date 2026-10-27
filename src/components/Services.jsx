@@ -63,8 +63,10 @@ const Services = ({ classicHeader, darkTheme }) => {
             }
           >
             What I Do
-            <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
-          </p>
+            <span 
+                className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"
+                style={{ width: 150}}
+            /></p>
         </div>
         {/* Heading end*/}
         {/* content start */}

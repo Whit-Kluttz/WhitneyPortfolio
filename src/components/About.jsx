@@ -21,8 +21,10 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
             }
           >
             Get To Know Me
-            <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
-          </p>
+            <span 
+                className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"
+                style={{ width: 250}}
+            /></p>
         </div>
         {/* Heading end*/}
         <div className="row gy-5">

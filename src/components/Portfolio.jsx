@@ -494,8 +494,10 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
             >
               {" "}
               My Work
-              <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
-            </p>
+              <span 
+                className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"
+                style={{ width: 125}}
+            /></p>
           </div>
           {/* Heading end*/}
           {/* Filter Menu */}

@@ -1,4 +1,5 @@
 import "./App.scss";
+import Showcase from "./components/Showcase";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import AboutUs from "./components/About";
@@ -77,11 +78,16 @@ function App() {
           )}
 
           <div id="content" role="main">
-            <Home
+            {/* <Home
               classicHeader={classicHeader}
               darkTheme={darkTheme}
               handleNavClick={handleNavClick}
-            ></Home>
+            ></Home> */}
+            <Showcase 
+              classicHeader={classicHeader}
+              darkTheme={darkTheme}
+              handleNavClick={handleNavClick}
+            ></Showcase>
             <Portfolio
               classicHeader={classicHeader}
               darkTheme={darkTheme}
