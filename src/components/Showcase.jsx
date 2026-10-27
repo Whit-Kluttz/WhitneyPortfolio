@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 /* ---- TRAILER: point these at your own video ---- */
 // Put the file in your public folder, next to your images (e.g. public/videos/trailer.mp4).
 // The path has no leading slash, matching how your project images are referenced.
-const TRAILER_SRC = "videos/trailer.mp4";
+const TRAILER_SRC = "videos/Showcase2026.mp4";
 const TRAILER_POSTER = ""; // optional: image shown while the video loads, e.g. "images/projects/trailer-poster.jpg"
 
 /* ---- HEADING TEXT ---- */
@@ -28,11 +28,11 @@ const Showcase = ({ classicHeader, darkTheme }) => {
   return (
     <section
       id="showcase"
-      className={"section " + (darkTheme ? "bg-dark-2" : "bg-light")}
+      className={"section py-4" + (darkTheme ? "bg-dark-2" : "bg-light")}
     >
       <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
         {/* Heading */}
-        <div className="position-relative d-flex text-center mb-5">
+        <div className="position-relative d-flex text-center mb-3">
           <h2
             className={
               "text-24  text-uppercase fw-600 w-100 mb-0 " +

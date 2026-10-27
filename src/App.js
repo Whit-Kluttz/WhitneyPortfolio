@@ -78,16 +78,16 @@ function App() {
           )}
 
           <div id="content" role="main">
-            {/* <Home
+            <Home
               classicHeader={classicHeader}
               darkTheme={darkTheme}
               handleNavClick={handleNavClick}
-            ></Home> */}
-            <Showcase 
+            ></Home>
+            {/* <Showcase 
               classicHeader={classicHeader}
               darkTheme={darkTheme}
               handleNavClick={handleNavClick}
-            ></Showcase>
+            ></Showcase> */}
             <Portfolio
               classicHeader={classicHeader}
               darkTheme={darkTheme}

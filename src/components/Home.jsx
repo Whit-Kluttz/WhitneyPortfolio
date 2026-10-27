@@ -25,7 +25,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                 <p className="text-5 text-light mb-4">
                   based in Santa Monica, California.
                 </p>
-                <a
+                {/* <a
                   href="#contact"
                   className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
                   onClick={(e) => {
@@ -34,7 +34,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                   }}
                 >
                   Hire Me
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

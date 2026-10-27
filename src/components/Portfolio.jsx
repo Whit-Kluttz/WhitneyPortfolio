@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
 import ProjectDetailsModal from "./ProjectDetailsModal";
+
+/* ---- TRAILER: point these at your own video ---- */
+// The file lives in your public folder (no leading slash, like your project images)
+const TRAILER_SRC = "videos/Showcase2026.mp4";
+const TRAILER_POSTER = ""; // optional: image shown while the video loads
+
+const HEADER_OVERLAP = 68; // px the video slides up under the heading (bigger = more overlap)
+const PORTFOLIO_TEXT_RAISE = 15;
+
 const Portfolio = ({ classicHeader, darkTheme }) => {
   // init one ref to store the future isotope object
   const isotope = useRef();
@@ -8,6 +17,10 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
   const [filterKey, setFilterKey] = useState("*");
   const [imagesLoaded, setimagesLoaded] = useState(0);
   const [selectedProjectDetails, setSelectedProjectDetails] = useState();
+
+  // trailer video
+  const videoRef = useRef();
+  const [trailerFailed, setTrailerFailed] = useState(false);
 
   const filters = {
     DESIGN: "Design",
@@ -17,7 +30,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
   };
 
   const projectsData = [
-    { title: "Floor is... What?!",
+    {
+      title: "Floor is... What?!",
       engine: "Unity",
       projectInfo:
         "Floor is... What?! Is a four player Mario Party style like game I had the joy of working on with Joshua Garity for the majority of 2023 - 2024. I assisted the project by porting it for online networking using the Photon PUN2 SDK, developing preexisting gameplay and Unity physics to work seamlessly for online gameplay. I also assisted in the game design giving prototyping notes and attending conferences and playtesting sessions to gather and analzye player feedback. ",
@@ -44,7 +58,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH],
     },
-    { title: "Nunaka",
+    {
+      title: "Nunaka",
       engine: "Unity",
       projectInfo:
         "Nunaka is a 3D Unity game I worked on as a Developer at FableVision. Nunaka is a fun and engaging mobile game exploring Sugpiaq heritage, the Sugt'stun language, and key school readiness goals for 3-5-year-olds. On this project, I worked in developing the narrative and minigames featured in the game as well as helping cut down on graphic performance issues for mobile devices.",
@@ -73,7 +88,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES],
     },
-    { title: "Idol Hell",
+    {
+      title: "Idol Hell",
       projectInfo:
         "Idol Hell is a 6 chapter arcade shooter game developed in Unity as a capstone project I led. The game raised $17.5k in a successful Kickstart campaign and is available on both Steam and Nintendo Switch. My main responsibilities included scripting generative bullet logic, designing artistic bullet patterns for four difficulties, moderating a community server, and assisting with optimization for the Switch SDK.",
       client: "Whitney Kluttz",
@@ -95,7 +111,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES],
     },
-    { title: "Marine Biology VR",
+    {
+      title: "Marine Biology VR",
       projectInfo:
         "Marine Biology is a project I developed with Alter-Learning Education Inc. The project is a fully immersive VR underwater experience meant to help teach children about marine life. My role included VR Unity development, WebGL optimization, and design documentation and prototyping for underwater sea creatures.",
       client: "Alter Learning",
@@ -125,7 +142,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.GAMES, filters.TECH, filters.DESIGN],
     },
-    {title: "Bun.EXE",
+    {
+      title: "Bun.EXE",
       projectInfo:
         "Bun.EXE is an action adventure game that tells a story across four major dungeons. On this project, I worked in developing the narrative, puzzle, and combat systems in the game. I also was the primary designer behind the puzzles in each dungeon and prototyped combat for all enemies and bosses.",
       client: "Sean Foley",
@@ -152,7 +170,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES],
     },
-    {title: "Online First Person Shooter Demo",
+    {
+      title: "Online First Person Shooter Demo",
       engine: "Unity",
       projectInfo: "This is a Demo project I made for a client. While not avalialbe to play, it features online gameplay through Photon Quantum, a voxel based enviornment generator, 4 wacky guns, and more!",
       client: "LS",
@@ -164,11 +183,11 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         link: "https://www.youtube.com/@Lich",
       },
       socialLinks: {
-      Youtube: "https://www.youtube.com/@Lich",
-      //   twitter: "http://www.twitter.com/",
-      //   google: "http://www.google.com/",
-      //   instagram: "http://www.instagram.com/",
-      //   mail: "mailto:example@gmail.com",
+        Youtube: "https://www.youtube.com/@Lich",
+        //   twitter: "http://www.twitter.com/",
+        //   google: "http://www.google.com/",
+        //   instagram: "http://www.instagram.com/",
+        //   mail: "mailto:example@gmail.com",
       },
       thumbImage: "images/projects/fps/Header.png",
       sliderImages: [
@@ -177,7 +196,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH],
     },
-    {title: "Real Time Strategy Tool",
+    {
+      title: "Real Time Strategy Tool",
       engine: "Unity",
       projectInfo: "This was a tool I made to assist with a greater real time strategy project called Mist Of War. I provided a small RTS demo in Unity complete with an enviornment generator, seeking and attack AIs, and more!",
       client: "Our English",
@@ -203,7 +223,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.GAMES, filters.TECH],
     },
-    { title: "Miraglia Client Portal",
+    {
+      title: "Miraglia Client Portal",
       projectInfo:
         "Miraglia & Company is an eviction law firm I worked for during employment with Sandbox Union. On this project I was client facing and dealt with Front-End development of their client portal.",
       client: "Miraglia & Company",
@@ -229,7 +250,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.WEBSITES],
     },
-    { title: "Notes - A React App",
+    {
+      title: "Notes - A React App",
       projectInfo:
         "Notes - A React App is a tech demo I put together to improve on my React Skills. It's a simply reflection of the iOS Notes app on a PC using local back-end Json hosting to save data for created and deleted notes.",
       client: "Whitney Kluttz",
@@ -255,7 +277,8 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
       ],
       categories: [filters.WEBSITES],
     },
-    { title: "Sentence Builder",
+    {
+      title: "Sentence Builder",
       engine: "Unity",
       projectInfo: "Sentence Builder is an educational Unity game developed to teach English language learning skills. \The primary challenges involved in this project included back-end integration for thousands of active users, and loading educational content into the game from a custom back-end service. \
 This game comes with both a Review mode for lesson learning, as well as an arcade marketplace mode with endless gameplay!",
@@ -284,7 +307,8 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH],
     },
-    { title: "Sharp Shooter",
+    {
+      title: "Sharp Shooter",
       engine: "Unity",
       projectInfo: "Sharp Shooter is an educational Unity game developed to teach English language learning skills. \The primary challenges involved in this project included back-end integration for thousands of active users, and loading educational content into the game from a custom back-end service. \
 This game comes with both a Review mode for lesson learning, as well as an arcade marketplace mode with endless gameplay!",
@@ -312,7 +336,8 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH],
     },
-    { title: "Word Scramble",
+    {
+      title: "Word Scramble",
       engine: "Unity",
       projectInfo: "Word Scramble is an educational Unity game developed to teach English language learning skills. \The primary challenges involved in this project included back-end integration for thousands of active users, and loading educational content into the game from a custom back-end service. \
 This game comes with both a Review mode for lesson learning, as well as an arcade marketplace mode with endless gameplay!",
@@ -338,8 +363,9 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
         "images/projects/WordScramble/Image3.png",
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH],
-    }, 
-    { title: "Word Rush",
+    },
+    {
+      title: "Word Rush",
       engine: "HTML5",
       projectInfo: "Word Rush is an educational Unity game developed to teach English language learning skills. \The primary challenges involved in this project included back-end integration for thousands of active users, and loading educational content into the game from a custom back-end service. \
 This game comes with both a Review mode for lesson learning, as well as an arcade marketplace mode with endless gameplay!",
@@ -367,7 +393,8 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH, filters.WEBSITES],
     },
-    { title: "Bubble Pop",
+    {
+      title: "Bubble Pop",
       engine: "HTML5",
       projectInfo: "Bubble Pop is an educational Unity game developed to teach English language learning skills. \The primary challenges involved in this project included back-end integration for thousands of active users, and loading educational content into the game from a custom back-end service. \
 This game comes with both a Review mode for lesson learning, as well as an arcade marketplace mode with endless gameplay!",
@@ -394,7 +421,8 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       ],
       categories: [filters.DESIGN, filters.GAMES, filters.TECH, filters.WEBSITES],
     },
-    {title: "Cattle USA",
+    {
+      title: "Cattle USA",
       projectInfo:
         "Cattle USA is a website I developed along with the Effortless API team inside the Angular framework. On this project I helped develop front end design for the login authentication page and developed a new front-end application for the company. I also ran backend QA testing for a switch to Token based OAuth using a DBeaver server for tracking user data.",
       client: "EJ Alexandria",
@@ -419,7 +447,8 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       ],
       categories: [filters.WEBSITES],
     },
-    { title: "Equlibiria Systems",
+    {
+      title: "Equlibiria Systems",
       projectInfo:
         "Equilibria Systems is a company focused on bridging informational sciences with entertainment systems. I worked to develop a bold project of theirs that used Open AI to serve as a linguistic game master in an upcoming project. Because of NDA I cannot include images or specific details, but my responsibilities included Unity API integration, MML management, and back-end data retrieval.",
       client: "Ross Magnant",
@@ -444,6 +473,17 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       categories: [filters.GAMES],
     },
   ];
+
+  // Browsers only allow autoplay when the video is muted, and React doesn't
+  // reliably apply the `muted` attribute, so set it directly and start playback.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {
+      // If the browser still blocks autoplay, the controls let the viewer press play
+    });
+  }, []);
 
   // initialize an Isotope object with configs
   useEffect(() => {
@@ -477,29 +517,68 @@ This game comes with both a Review mode for lesson learning, as well as an arcad
       >
         <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
           {/* Heading */}
-          <div className="position-relative d-flex text-center mb-5">
+          <div
+            className="position-relative d-flex text-center mb-0"
+            style={{ zIndex: 1 }}
+          >
             <h2
               className={
-                "text-24  text-uppercase fw-600 w-100 mb-0 " +
+                "text-25  text-uppercase fw-600 w-100 mb- " +
                 (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
               }
+              style={{transform: `translateY(-${PORTFOLIO_TEXT_RAISE}px)`}}
             >
               Portfolio
             </h2>
             <p
               className={
-                "text-9 text-dark fw-600 position-absolute w-100 align-self-center lh-base mb-0 " +
+                "text-11 text-dark fw-600 position-absolute w-100 align-self-center lh-base mb-0 " +
                 (darkTheme ? "text-white" : "text-dark")
               }
             >
               {" "}
               My Work
-              <span 
-                className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"
-                style={{ width: 125}}
-            /></p>
+              <span
+                className="heading-separator-line bg-primary d-block mx-auto"
+                style={{
+                  width: 150,
+                  height: 6,
+                  borderRadius: 999,
+                  border: 0,
+                }}
+              /></p>
           </div>
           {/* Heading end*/}
+          {/* Trailer */}
+          <div
+            className="row justify-content-center mb-5"
+            style={{ marginTop: -HEADER_OVERLAP }}
+          >
+            <div className="col-lg-8">
+              <div className="ratio ratio-16x9 rounded overflow-hidden shadow">
+                {trailerFailed ? (
+                  <div className="d-flex align-items-center justify-content-center bg-dark text-light">
+                    <p className="mb-0">Trailer coming soon</p>
+                  </div>
+                ) : (
+                  <video
+                    ref={videoRef}
+                    src={TRAILER_SRC}
+                    poster={TRAILER_POSTER || undefined}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    preload="auto"
+                    onError={() => setTrailerFailed(true)}
+                    style={{ objectFit: "contain", backgroundColor: "#000" }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+          {/* Trailer end */}
           {/* Filter Menu */}
           <ul
             className={
